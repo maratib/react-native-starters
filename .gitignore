@@ -8,6 +8,8 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
+*.apk
+.apks
 web-build/
 
 # macOS
