@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { Alert, Button, Dimensions, Image, SafeAreaView, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import { Alert, Button, Dimensions, Image, SafeAreaView, StyleSheet, StatusBar, Text, TouchableHighlight, View, Platform } from 'react-native';
 
 export default function App() {
   const handlePress = () => console.log("Text Clicked");
-  console.log(Dimensions.get("screen"));
+  // console.log(Dimensions.get("screen"));
   return (
     <SafeAreaView style={styles.container}>
+      <ExpoStatusBar style="light" backgroundColor="#000" />
       <Text numberOfLines={1} onPress={handlePress} >Open up App.tsx to start working on your app 123! Allow me to create a really long text</Text>
 
       <TouchableHighlight onPress={() => console.log("Image pressed")}>
@@ -41,7 +42,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
+    alignItems: 'center',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     // justifyContent: 'center',
   },
 });
